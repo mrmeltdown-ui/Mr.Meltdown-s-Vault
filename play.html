@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play - Mr.Meltdown's Vault</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-placeholder" crossorigin="anonymous"></script>
+</head>
+<body class="min-h-screen font-sans selection:bg-fuchsia-500/30 selection:text-white flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="sticky top-0 z-50 w-full bg-zinc-900 border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="index.html" class="flex items-center gap-3 group hover:-translate-y-1 transition-transform">
+          <div class="p-2 bg-yellow-400 brutal-box -rotate-6 group-hover:rotate-0">
+            <i data-lucide="gamepad-2" class="w-8 h-8 text-black"></i>
+          </div>
+          <span class="graffiti-text text-3xl text-yellow-400 drop-shadow-[2px_2px_0_#000] -rotate-2 mt-2">
+            Mr.Meltdown's <span class="text-fuchsia-500">Vault</span>
+          </span>
+        </a>
+
+        <div class="flex items-center gap-4">
+          <button
+            id="panicBtn"
+            class="flex items-center gap-2 px-5 py-2.5 bg-red-500 text-white brutal-box font-bold text-lg -rotate-2 hover:rotate-0"
+            title="Panic Button (Esc)"
+          >
+            <i data-lucide="shield-alert" class="w-5 h-5"></i>
+            <span class="hidden sm:inline uppercase tracking-wider">Panic</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-8">
+    
+    <div class="hidden lg:block w-[160px] xl:w-[300px] flex-shrink-0">
+      <div class="relative overflow-hidden bg-zinc-800 brutal-box flex items-center justify-center w-full h-[600px] sticky top-28">
+        <div class="absolute inset-0 flex items-center justify-center bg-zinc-900 pointer-events-none z-0">
+          <div class="border-4 border-dashed border-zinc-700 w-[95%] h-[98%] flex items-center justify-center">
+            <span class="graffiti-text text-zinc-700 text-2xl -rotate-2">AD SPACE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-1 flex flex-col min-w-0">
+      <div class="flex items-center justify-between mb-6">
+        <a href="index.html" class="flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black brutal-box font-bold hover:bg-yellow-300">
+          <i data-lucide="arrow-left" class="w-5 h-5"></i>
+          <span class="uppercase tracking-wider">Back</span>
+        </a>
+        <h1 id="gameTitle" class="graffiti-text text-3xl sm:text-4xl text-cyan-400 drop-shadow-[3px_3px_0_#000] truncate px-4 -rotate-1">Loading...</h1>
+        <button 
+          id="fullscreenBtn"
+          class="flex items-center gap-2 px-4 py-2 bg-fuchsia-500 text-white brutal-box font-bold hover:bg-fuchsia-400"
+        >
+          <i data-lucide="maximize-2" class="w-5 h-5"></i>
+          <span id="fullscreenText" class="hidden sm:inline uppercase tracking-wider">Fullscreen</span>
+        </button>
+      </div>
+
+      <div class="relative w-full aspect-video bg-zinc-900 brutal-box p-2">
+        <iframe
+          id="game-iframe"
+          src=""
+          class="w-full h-full border-2 border-black bg-black"
+          allow="autoplay; fullscreen; gamepad"
+          sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+          title="Game"
+        ></iframe>
+      </div>
+
+      <div class="mt-8 p-5 bg-yellow-400 text-black brutal-box rotate-1 flex items-start gap-4">
+        <i data-lucide="alert-triangle" class="w-8 h-8 flex-shrink-0 mt-1"></i>
+        <div class="text-sm font-bold leading-relaxed">
+          <p class="text-lg uppercase tracking-tight mb-1">Game blocked?</p>
+          <p class="text-zinc-800">Some school networks or adblockers might block external game servers. If the game doesn't load, try disabling your adblocker. Press <kbd class="px-2 py-1 bg-black text-white rounded border-b-2 border-zinc-700 font-mono text-xs mx-1">Esc</kbd> or <kbd class="px-2 py-1 bg-black text-white rounded border-b-2 border-zinc-700 font-mono text-xs mx-1">`</kbd> anytime to quickly hide the screen.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 w-full h-[90px]">
+        <div class="relative overflow-hidden bg-zinc-800 brutal-box flex items-center justify-center w-full h-full">
+          <div class="absolute inset-0 flex items-center justify-center bg-zinc-900 pointer-events-none z-0">
+            <div class="border-4 border-dashed border-zinc-700 w-[95%] h-[90%] flex items-center justify-center">
+              <span class="graffiti-text text-zinc-700 text-2xl -rotate-2">AD SPACE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden xl:block w-[300px] flex-shrink-0">
+      <div class="relative overflow-hidden bg-zinc-800 brutal-box flex items-center justify-center w-full h-[600px] sticky top-28">
+        <div class="absolute inset-0 flex items-center justify-center bg-zinc-900 pointer-events-none z-0">
+          <div class="border-4 border-dashed border-zinc-700 w-[95%] h-[98%] flex items-center justify-center">
+            <span class="graffiti-text text-zinc-700 text-2xl -rotate-2">AD SPACE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="games.js"></script>
+  <script src="play.js"></script>
+</body>
+</html>

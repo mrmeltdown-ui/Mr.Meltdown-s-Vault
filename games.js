@@ -1,12 +1,4 @@
-export interface Game {
-  id: string;
-  title: string;
-  url: string;
-  image: string;
-  category: string;
-}
-
-export const games: Game[] = [
+const games = [
   {
     id: '2048',
     title: '2048',
