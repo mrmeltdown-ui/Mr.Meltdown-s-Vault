@@ -7,15 +7,15 @@ export default function Navbar({ onSearch }: { onSearch?: (q: string) => void })
   };
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+    <nav className="sticky top-0 z-50 w-full bg-zinc-900 border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="p-2 bg-emerald-500/10 rounded-lg group-hover:bg-emerald-500/20 transition-colors">
-              <Gamepad2 className="w-6 h-6 text-emerald-500" />
+        <div className="flex items-center justify-between h-20">
+          <Link to="/" className="flex items-center gap-3 group hover:-translate-y-1 transition-transform">
+            <div className="p-2 bg-yellow-400 brutal-box -rotate-6 group-hover:rotate-0">
+              <Gamepad2 className="w-8 h-8 text-black" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-zinc-100">
-              Mr.Meltdown's <span className="text-emerald-500">Vault</span>
+            <span className="graffiti-text text-3xl text-yellow-400 drop-shadow-[2px_2px_0_#000] -rotate-2 mt-2">
+              Mr.Meltdown's <span className="text-fuchsia-500">Vault</span>
             </span>
           </Link>
 
@@ -23,12 +23,12 @@ export default function Navbar({ onSearch }: { onSearch?: (q: string) => void })
             <div className="flex-1 max-w-md mx-8">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Search className="h-4 w-4 text-zinc-500" />
+                  <Search className="h-5 w-5 text-black font-bold" />
                 </div>
                 <input
                   type="text"
-                  className="block w-full pl-10 pr-3 py-2 border border-zinc-800 rounded-xl leading-5 bg-zinc-900/50 text-zinc-300 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 sm:text-sm transition-all"
-                  placeholder="Search the vault..."
+                  className="block w-full pl-10 pr-3 py-3 brutal-box bg-white text-black font-bold placeholder-zinc-500 focus:outline-none focus:ring-0 sm:text-sm"
+                  placeholder="SEARCH THE VAULT..."
                   onChange={(e) => onSearch(e.target.value)}
                 />
               </div>
@@ -38,11 +38,11 @@ export default function Navbar({ onSearch }: { onSearch?: (q: string) => void })
           <div className="flex items-center gap-4">
             <button
               onClick={handlePanic}
-              className="flex items-center gap-2 px-4 py-2 bg-red-500/10 text-red-500 hover:bg-red-500/20 rounded-xl text-sm font-medium transition-colors"
+              className="flex items-center gap-2 px-5 py-2.5 bg-red-500 text-white brutal-box font-bold text-lg -rotate-2 hover:rotate-0"
               title="Panic Button (Esc)"
             >
-              <ShieldAlert className="w-4 h-4" />
-              <span className="hidden sm:inline">Panic</span>
+              <ShieldAlert className="w-5 h-5" />
+              <span className="hidden sm:inline uppercase tracking-wider">Panic</span>
             </button>
           </div>
         </div>

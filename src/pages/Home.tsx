@@ -24,58 +24,58 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen font-sans selection:bg-fuchsia-500/30 selection:text-white">
       <Navbar onSearch={setSearchQuery} />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8 w-full h-[90px] md:h-[120px]">
+        <div className="mb-10 w-full h-[90px] md:h-[120px]">
           <AdBanner dataAdSlot="1234567890" className="w-full h-full" />
         </div>
 
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold tracking-tight">
+        <div className="flex items-center justify-between mb-10">
+          <h1 className="graffiti-text text-4xl sm:text-5xl text-cyan-400 drop-shadow-[3px_3px_0_#000] -rotate-1 inline-block">
             {searchQuery ? 'Search Results' : 'Featured Games'}
           </h1>
-          <div className="text-sm text-zinc-500 font-mono">
-            {filteredGames.length} games found
+          <div className="text-sm text-black bg-yellow-400 brutal-box px-3 py-1 font-bold rotate-2">
+            {filteredGames.length} GAMES
           </div>
         </div>
 
         {filteredGames.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8">
             {filteredGames.map((game) => (
               <Link
                 key={game.id}
                 to={`/play/${game.id}`}
-                className="group relative flex flex-col bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-emerald-500/50 transition-all hover:shadow-lg hover:shadow-emerald-500/10"
+                className="group relative flex flex-col bg-zinc-100 p-3 brutal-box even:rotate-1 odd:-rotate-1 hover:rotate-0 hover:z-10"
               >
-                <div className="aspect-square w-full overflow-hidden bg-zinc-800 relative">
+                <div className="aspect-square w-full overflow-hidden border-2 border-black bg-black relative">
                   <img
                     src={game.image}
                     alt={game.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-300"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <div className="bg-emerald-500 text-zinc-950 rounded-full p-3 transform translate-y-4 group-hover:translate-y-0 transition-all">
-                      <Play className="w-6 h-6 fill-current" />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-sm">
+                    <div className="bg-fuchsia-500 text-black brutal-box rounded-full p-3 transform scale-50 group-hover:scale-100 transition-all">
+                      <Play className="w-6 h-6 fill-current ml-1" />
                     </div>
                   </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-zinc-100 truncate">{game.title}</h3>
-                  <p className="text-xs text-zinc-500 mt-1 uppercase tracking-wider font-semibold">{game.category}</p>
+                <div className="pt-3 pb-1">
+                  <h3 className="font-bold text-black text-lg uppercase tracking-tight truncate">{game.title}</h3>
+                  <p className="text-sm text-fuchsia-600 font-bold uppercase tracking-wider">{game.category}</p>
                 </div>
               </Link>
             ))}
           </div>
         ) : (
-          <div className="text-center py-20">
-            <p className="text-zinc-500 text-lg">No games found matching "{searchQuery}".</p>
+          <div className="text-center py-20 bg-zinc-900 brutal-box max-w-2xl mx-auto -rotate-1">
+            <p className="graffiti-text text-3xl text-zinc-500">No games found matching "{searchQuery}"</p>
           </div>
         )}
 
-        <div className="mt-12 w-full h-[90px] md:h-[120px]">
+        <div className="mt-16 w-full h-[90px] md:h-[120px]">
           <AdBanner dataAdSlot="0987654321" className="w-full h-full" />
         </div>
       </main>

@@ -23,7 +23,7 @@ export default function AdBanner({
   }, []);
 
   return (
-    <div className={`relative overflow-hidden bg-zinc-900/50 rounded-lg border border-zinc-800 flex items-center justify-center ${className}`}>
+    <div className={`relative overflow-hidden bg-zinc-800 brutal-box flex items-center justify-center ${className}`}>
       <ins className="adsbygoogle relative z-10"
            style={{ display: 'block', width: '100%', height: '100%' }}
            data-ad-client={import.meta.env.VITE_ADSENSE_CLIENT_ID || "ca-pub-placeholder"}
@@ -31,8 +31,10 @@ export default function AdBanner({
            data-ad-format={dataAdFormat}
            data-full-width-responsive={fullWidthResponsive.toString()}></ins>
       {/* Fallback for development/adblockers */}
-      <div className="absolute inset-0 flex items-center justify-center text-zinc-600 text-sm pointer-events-none z-0">
-        Advertisement
+      <div className="absolute inset-0 flex items-center justify-center bg-zinc-900 pointer-events-none z-0">
+        <div className="border-4 border-dashed border-zinc-700 w-[95%] h-[90%] flex items-center justify-center">
+          <span className="graffiti-text text-zinc-700 text-2xl -rotate-2">AD SPACE</span>
+        </div>
       </div>
     </div>
   );
