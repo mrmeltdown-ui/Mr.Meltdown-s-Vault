@@ -23,6 +23,40 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
+// Cloak (about:blank) Logic
+const cloakBtn = document.getElementById('cloakBtn');
+if (cloakBtn) {
+  cloakBtn.addEventListener('click', () => {
+    let win = window.open('about:blank', '_blank');
+    if (!win) {
+      alert('Popup blocked! Please allow popups to use the Cloak feature.');
+      return;
+    }
+    
+    let doc = win.document;
+    doc.write(`
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <title>Google</title>
+          <link rel="icon" href="https://www.google.com/favicon.ico">
+          <style>
+            body { margin: 0; padding: 0; overflow: hidden; background: #000; }
+            iframe { width: 100vw; height: 100vh; border: none; }
+          </style>
+        </head>
+        <body>
+          <iframe src="${window.location.href}"></iframe>
+        </body>
+      </html>
+    `);
+    doc.close();
+    
+    // Redirect the original tab to look like you're doing work
+    window.location.replace('https://classroom.google.com');
+  });
+}
+
 // Render Games
 function renderGames(query = '') {
   const filteredGames = games.filter(game => 
