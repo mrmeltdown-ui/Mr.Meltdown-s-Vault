@@ -30,6 +30,11 @@ if (!game) {
   const iframe = document.getElementById('game-iframe');
   iframe.src = game.url;
   iframe.title = game.title;
+  
+  const newTabBtn = document.getElementById('newTabBtn');
+  if (newTabBtn) {
+    newTabBtn.href = game.url;
+  }
 }
 
 // Fullscreen logic
