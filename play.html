@@ -27,6 +27,14 @@
 
         <div class="flex items-center gap-4">
           <button
+            onclick="openDisguiseModal()"
+            class="hidden sm:flex items-center gap-2 px-4 py-2 bg-indigo-500 text-white brutal-box font-bold text-sm -rotate-1 hover:rotate-0"
+            title="Mask this site inside Google Classroom"
+          >
+            <i data-lucide="mask" class="w-4 h-4"></i>
+            <span class="uppercase tracking-wider">Disguise</span>
+          </button>
+          <button
             id="panicBtn"
             class="flex items-center gap-2 px-5 py-2.5 bg-red-500 text-white brutal-box font-bold text-lg -rotate-2 hover:rotate-0"
             title="Panic Button (Esc)"
@@ -121,7 +129,33 @@
 
   </main>
 
+  <!-- Disguise Modal -->
+  <div id="disguiseModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-[60] backdrop-blur-sm px-4">
+    <div class="bg-zinc-900 p-8 brutal-box max-w-md w-full border-4 border-black relative rotate-1">
+      <button onclick="closeDisguiseModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors">
+        <i data-lucide="x" class="w-8 h-8"></i>
+      </button>
+      <h2 class="graffiti-text text-3xl text-indigo-400 drop-shadow-[2px_2px_0_#000] mb-4 -rotate-2">
+        Disguise URL
+      </h2>
+      <p class="text-zinc-300 mb-6 font-bold leading-relaxed">
+        Want to hide this site inside Google Classroom? Drag the button below to your bookmarks bar. Then, go to Google Classroom and click the bookmark!
+      </p>
+      <div class="bg-zinc-800 p-6 brutal-box flex justify-center mb-6 -rotate-1">
+        <a id="bookmarkletLink" href="#" class="bg-indigo-500 hover:bg-indigo-400 text-white font-bold py-3 px-8 brutal-box text-lg cursor-grab active:cursor-grabbing rotate-2 hover:rotate-0 transition-transform">
+          Classroom Home
+        </a>
+      </div>
+      <div class="text-sm text-zinc-400 space-y-3 font-bold">
+        <p><span class="text-yellow-400">Step 1:</span> Show your bookmarks bar (Ctrl+Shift+B).</p>
+        <p><span class="text-yellow-400">Step 2:</span> Drag the "Classroom Home" button up to the bar.</p>
+        <p><span class="text-yellow-400">Step 3:</span> Open classroom.google.com and click the bookmark!</p>
+      </div>
+    </div>
+  </div>
+
   <script src="games.js"></script>
+  <script src="disguise.js"></script>
   <script src="play.js"></script>
 </body>
 </html>
